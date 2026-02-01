@@ -1,4 +1,3 @@
-
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
@@ -78,7 +77,17 @@ public class Main {
             }
         }
     }
-;
+
+    static void saveNotesToFile() {
+        try {
+            FileWriter writer = new FileWriter(FILE_NAME);
+            for (Note n : notes) {
+                writer.write(n.content + "\n");
+            }
+            writer.close();
+            System.out.println("💾 Notes saved to file successfully!");
+        } catch (IOException e) {
+            System.out.println("Error saving notes.");
         }
     }
 
